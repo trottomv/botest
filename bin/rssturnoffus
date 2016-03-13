@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../lib/botest', __FILE__)
+Botest.new.rssturnoffus
+
