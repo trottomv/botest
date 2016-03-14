@@ -49,7 +49,7 @@ Telegram::Bot::Client.run(token) do |bot|
     end
     def rssXkcd
       rssXcd = SimpleRSS.parse open('http://xkcd.com/rss.xml')
-      timefeed=rss.items.first.pubDate.strftime ("%d-%m-%Y")
+      timefeed=rssXkcd.items.first.pubDate.strftime ("%d-%m-%Y")
       today=Time.now.strftime ("%d-%m-%Y")
       case timefeed
       when today
@@ -59,7 +59,7 @@ Telegram::Bot::Client.run(token) do |bot|
     end
     def rssturnoffus
       rssreturnoffus = SimpleRSS.parse open('http://turnoff.us/feed.xml')
-      timefeed=rss.items.first.pubDate.strftime ("%d-%m-%Y %H")
+      timefeed=rssreturnoffus.items.first.pubDate.strftime ("%d-%m-%Y %H")
       nowh=Time.now.strftime ("%d-%m-%Y %H")
       case timefeed
       when nowh
