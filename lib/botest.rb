@@ -61,7 +61,7 @@ Telegram::Bot::Client.run(token) do |bot|
       case timefeed
       when nowh
         # http = Curl.get("https://api.telegram.org/bot#{ENV['TOKEN']}/sendMessage?chat_id=#{ENV['CHAT_ID']}&text=#{rss.items.first.link}")
-        bot.api.send_message(chat_id: message.chat.id, text: "#{rssturnoffus.items.first.link")
+        bot.api.send_message(chat_id: message.chat.id, text: "#{rssturnoffus.items.first.link}")
       end
     end
   end
