@@ -11,7 +11,8 @@ require 'open-uri'
 class Botest
 Dotenv.load
 token = ENV['TOKEN']
-feed = FeedNormalizer::FeedNormalizer.parse open('http://xkcd.com/rss.xml')
+xkcd = FeedNormalizer::FeedNormalizer.parse open('http://xkcd.com/rss.xml')
+turnoffus = FeedNormalizer::FeedNormalizer.parse open('http://turnoff.us/feed.xml')
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
@@ -32,7 +33,9 @@ Telegram::Bot::Client.run(token) do |bot|
         end
       end
     when '/lastxkcd'
-      bot.api.send_message(chat_id: message.chat.id, text: "#{feed.entries.first.url}")
+      bot.api.send_message(chat_id: message.chat.id, text: "#{xkcd.entries.first.url}")
+    when '/lastturnoffus'
+      bot.api.send_message(chat_id: message.chat.id, text: "#{turnoffus.entries.first.url}")
     end
     def rssCal
       rsscal = SimpleRSS.parse open('#{ENV[FEED_CAL]}')
