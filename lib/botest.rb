@@ -54,7 +54,7 @@ Telegram::Bot::Client.run(token) do |bot|
       case timefeed
       when today
         # http = Curl.get("https://api.telegram.org/bot#{ENV['TOKEN']}/sendMessage?chat_id=#{ENV['CHAT_ID']}&text=#{rss.items.first.link}")
-        bot.api.send_message(chat_id: message.chat.id, text: "#{rssXcd.items.first.link}")
+        bot.api.send_message(chat_id: message.chat.id, text: "#{rssXkcd.items.first.link}")
       end
     end
     def rssturnoffus
